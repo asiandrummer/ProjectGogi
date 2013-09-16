@@ -1,0 +1,4 @@
+// Close addMemberModal modal
+$('#addMemberModal').foundation('reveal', 'close');
+// Add to the current member list
+$('#memberList').append('<%= escape_javascript(render partial: "members/member", locals: {member: @new_member}) %>');

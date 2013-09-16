@@ -1,0 +1,30 @@
+<%= form_for(@user, :url => { :action => "update_profile" }) do |f| %>
+	<fieldset>
+		<legend>Who Am I?</legend>
+
+		<div class="row">
+			<div class="small-3 columns">
+				<%= f.label :name, "Name" %>
+				<%= f.text_field :name, :autocomplete => "off" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-3 columns">
+				<%= f.label :password, "Password" %>
+				<%= f.password_field :password, :autocomplete => "off" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-6 columns">
+				<%= f.label :password_confirmation, "Confirm Password" %>
+				<%= f.password_field :password_confirmation, :autocomplete => "off" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-10 columns"></div>
+			<div class="small-2 columns">
+				<button class="small" type="submit">Submit</button>
+			</div>
+		</div>
+	</fieldset>
+<% end %>

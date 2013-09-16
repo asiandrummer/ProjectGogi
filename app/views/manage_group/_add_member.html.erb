@@ -1,0 +1,14 @@
+<%= form_for(@new_member, remote: true, :url => { :action => "add_member" }) do |f| %>
+	<div class="row">
+		<div class="small-3 columns">
+			<%= f.label :name, "Name" %>
+			<%= f.text_field :name, :autocomplete => "off" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-11 columns"></div>
+		<div class="small-1 columns">
+			<button class="small" type="submit">Submit</button>
+		</div>
+	</div>
+<% end %>

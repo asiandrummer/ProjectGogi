@@ -1,3 +1,28 @@
 // Place all the styles related to the MainPage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hidden {
+	display: none;
+}
+
+.vertical-scroll {
+	max-height: 600px;
+	overflow-y: scroll;
+}
+
+.margin-top-7px {
+	margin-top: 7px;
+}
+
+.th {
+	height: 25px;
+	width : 25px;
+}
+
+.selected {
+	background: #BEBEBE;
+}
+
+.fc-header-title h2 {
+	font-size: 27px;
+}

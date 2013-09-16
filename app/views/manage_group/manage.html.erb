@@ -1,0 +1,68 @@
+<% flash.each do |name, msg| %>
+	<div data-alert class="alert-box <%= name %>">
+		<%= msg %>
+		<a href="#" class="close">&times;</a>
+	</div>
+<% end %>
+
+<!-- Nav Bar -->
+<div class="row">
+	<div class="large-12 columns">
+		<div class="nav-bar right">
+			<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+			<br>
+			<%= link_to 'Home', home_path %>
+		</div>
+		<h1>NCBC Timothy Calendar</h1>
+		<hr />
+	</div>
+</div>
+<!-- End Nav -->
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+	<div class="section-container auto" data-section>
+		<section>
+			<p class="title" data-section-title><a href="#panel1">My Profile</a></p>
+			<div class="content" data-section-content>
+				<%= render template: "manage_group/_edit" %>
+			</div>
+		</section>
+
+		<section>
+			<p class="title" data-section-title><a href="#panel2">Manage My Group</a></p>
+			<div class="content" data-section-content>
+				<fieldset id="memberList">
+					<legend>Modify Group Members</legend>
+					<br>
+
+					<a href="#" class="small button" data-reveal-id="addMemberModal">Add a Member</a>
+
+					<% @members.each do |member| %>	
+						<%= render member %>
+					<% end %>
+				</fieldset>
+			</div>
+		</section>
+	</div>
+</div>
+
+<div id="addMemberModal" class="reveal-modal">
+	<h2>Add a New Member</h2>
+	<hr />
+	<%= render partial: "manage_group/add_member" %>
+</div>
+
+<!-- End Main Content and Sidebar -->
+
+<!-- Footer -->
+<footer class="row">
+	<div class="large-12 columns">
+		<hr />
+		<div class="row">
+			<div class="large-6 columns">
+				<p>&copy; Copyright no one at all. Go to town.</p>
+			</div>
+		</div>
+	</div>
+</footer>

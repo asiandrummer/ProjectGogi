@@ -1,2 +1,106 @@
-<h1>MainPage#home</h1>
-<p>Find me in app/views/main_page/home.html.erb</p>
+<% flash.each do |name, msg| %>
+	<div data-alert class="alert-box <%= name %>">
+		<%= msg %>
+		<a href="#" class="close">&times;</a>
+	</div>
+<% end %>
+
+<!-- Nav Bar -->
+<div class="row">
+	<div class="large-12 columns">
+		<div class="nav-bar right">
+			<% if user_signed_in? %>
+				<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+				<br>
+				<%= link_to 'Manage Group', manage_group_path %>
+			<% else %>
+				<%= link_to 'Sign in', new_user_session_path %>
+			<% end %>
+		</div>
+		<h1>NCBC Timothy Calendar</h1>
+		<hr />
+	</div>
+</div>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Calendar content -->
+	<div class="large-9 columns" id="mainCalendarContainer" role="content">
+	</div>
+	<!-- End Main Content -->
+
+	<!-- Sidebar -->
+    <aside id="sidebar" class="large-3 columns vertical-scroll hidden">
+
+ 		<div class="row">
+ 			<div class="small-6 large-10 columns">
+				<h5>Attendance</h5>
+ 			</div>
+ 			<div class="large-2 columns margin-top-7px">
+ 				<i id="closeButton" class="foundicon-remove"></i>
+ 			</div>
+ 		</div>
+
+		<div id="attendancePanel" class="panel">
+			<h5>Who was here?</h5>
+			<div class="row">
+				<div class="large-6 columns">
+				</div>
+				<div class="large-6 columns">
+					was here.
+				</div>
+			</div>
+		</div>
+		<div id="absentPanel" class="panel">
+			<h5>Who missed it?</h5>
+			<div class="row">
+				<div class="large-6 columns">
+				</div>
+				<div class="large-6 columns">
+					was not here.
+				</div>
+			</div>
+		</div>
+
+		<h5>When no one attended/was absent...</h5>
+
+		<div id="emptyAttendancePanel" class="panel">
+			<h5>Who was here?</h5>
+			<div class="row">
+				<div class="large-12 columns">
+					No one!
+				</div>
+			</div>
+		</div>
+		<div id="emptyAbsentPanel" class="panel">
+			<h5>Who missed it?</h5>
+			<div class="row">
+				<div class="large-12 columns">
+					No one!
+				</div>
+			</div>
+		</div>
+ 
+    </aside>
+    <!-- End Sidebar -->
+
+</div>
+
+<!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+
+<footer class="row">
+	<div class="large-12 columns">
+		<hr />
+		<div class="row">
+			<div class="large-6 columns">
+				<p>&copy; Copyright no one at all. Go to town.</p>
+			</div>
+		</div>
+	</div>
+</footer>
