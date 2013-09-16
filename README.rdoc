@@ -1,28 +1,69 @@
-== README
+PROJECT GOGI
+Hyohyeon Jeong
+2013-09-15
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+===================
+WEBSITE DESCRIPTION
+===================
 
-Things you may want to cover:
+This website, although originally designed to handle events using the calendar,
+is implemented only to be able to handle user management system.
+The calendar DOES NOT work at all as intended.
 
-* Ruby version
+There is currently one user and one member. Users are designed to be hard-coded by
+the admin (myself); however, members could be added by the user and will be associated to
+that user only.
 
-* System dependencies
+User can sign in using the top-right "Sign in" link, and may navigate to Manage Group page
+using either a link "Manage Group" or by typing url directly: "/manage_group".
 
-* Configuration
+Use this credential pair to test the website for now:
+Email: hyo.jeong@sv.cmu.edu
+Password: hyohyeon1
 
-* Database creation
+=============
+INITIAL SETUP
+=============
+Please run:
 
-* Database initialization
+rake db:reset
+rake db:seed
 
-* How to run the test suite
+to provide the basic data needed for this website to function.
 
-* Services (job queues, cache servers, search engines, etc.)
+For another option, Heroku-deployed website may also be reached at:
+http://project-gogi.herokuapp.com/
 
-* Deployment instructions
+==============
+FUTURE ROADMAP
+==============
 
-* ...
+Because this project only serves as a proof-of-concept for my future project,
+I decided to list out the possible improvements/roadmap items coming soon.
 
+1. Tests are not fully implemented; not following TDD style is bad and I should correct
+   myself.
+2. Implement Calendar/event into the calendar object
+3. Migrate all implementation using JavaScript/HTML/CSS and MongoDB
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=====
+MODEL
+=====
+User
+ - may have many members
+ - able to log into /home and /manage_group page
+Member
+ - related to one user
+ - are managed from /manage_group page
+ 
+==========
+CONTROLLER
+==========
+MainPageController
+ - Main Page (/home) controller
+ - not currently doing anything in particular; serving as a placeholder for now
+
+ManageGroupController
+ - Manage Group page (/manage_group) controller
+ - User/Member association management
+ - /manage_group/get_all_members gets all members associated to the user in XML format
